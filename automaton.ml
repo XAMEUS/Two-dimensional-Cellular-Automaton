@@ -20,3 +20,13 @@ let add_rule (r:automaton) s =
 let is_rule (r:automaton) s =
 	r.(aux s (String.length s) 0 0) = A
 ;;
+
+let rec aux l i ix = match l with
+	| [] -> ix
+	| [a] -> ix
+	| h::t -> if h = A then aux t (i+1) ix
+		else aux t (i+1) (pow 2 i)
+
+(* reverse the list *)
+let is_rule (r:automaton) l =
+	r.(aux l 0 0) = A
