@@ -32,7 +32,7 @@ simulate.cmo: simulate.ml simulate.cmi core.cmo
 simulate.cmi: simulate.mli
 	ocamlc simulate.mli
 
-test.cmo: test.ml core.cmo print.cmi read.cmi
+test.cmo: test.ml core.cmo print.cmi read.cmi automaton.cmi
 	ocamlc -c test.ml
 
 clean :
