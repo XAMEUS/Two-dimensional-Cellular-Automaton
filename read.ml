@@ -1,10 +1,11 @@
 open Core;;
 
 (*warning*)
-let lineToArray s t size =
+let lineToArray s size =
+	let a = Array.make size D in
 	for i=0 to size-1 do
-		t.(i) <- if s.[i] = 'A' then A else D
-	done;t
+		a.(i) <- if s.[i] = 'A' then A else D
+	done; a
 ;;
 
 let rec rules file aut:automaton =
@@ -17,19 +18,20 @@ let rec rules file aut:automaton =
 		(match s with
 			| "Regles" -> rules file aut
 			| "GenerationZero" -> aut
-			| _ -> rules file ((lineToArray s (Array.make 5 D) 5)::aut)
+			| _ -> rules file ((lineToArray s 5)::aut)
 		)
 	| None -> failwith "rules error"
 ;;
 
-let makegen file i gen =
-	for j=0 to i-1 do
+let makegen file dim =
+	let gen = Array.make_matrix dim dim D in
+	for j=0 to dim-1 do
 		let line = 
 			try Some (input_line file)
 			with End_of_file -> None
 		in
 		match line with
-			| Some s -> gen.(j) <- lineToArray s (Array.make i D) i
+			| Some s -> gen.(j) <- lineToArray s dim
 			| None -> failwith "makegen error"
 	done; gen
 ;;
@@ -43,7 +45,7 @@ let parse (file:in_channel) =
 	| Some s ->
 		let dimension = int_of_string s in
 		let aut:automaton = rules file [] in
-		let gen:generation = makegen file dimension (Array.make_matrix dimension dimension D) in 
+		let gen:generation = makegen file dimension in 
 		(dimension, aut, gen)
 	| None ->
 		failwith "error"
