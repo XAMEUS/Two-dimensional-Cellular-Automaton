@@ -1,4 +1,5 @@
 open Core;;
+open Trie;;
 
 let lineToArray s size =
 	let a = Array.make size D in
@@ -17,7 +18,7 @@ let rec rules file aut:automaton =
 		(match s with
 			| "Regles" -> rules file aut
 			| "GenerationZero" -> aut
-			| _ -> rules file ((lineToArray s 5)::aut)
+			| _ -> add_rule aut s; rules file aut
 		)
 	| None -> failwith "rules error"
 ;;
@@ -43,9 +44,9 @@ let parse (file:in_channel) =
 	match first_line with
 	| Some s ->
 		let dimension = int_of_string s in
-		let aut:automaton = rules file [] in
+		let aut:automaton = rules file (Array.make 32 D) in
 		let gen:generation = makegen file dimension in 
 		(dimension, aut, gen)
 	| None ->
-		failwith "error"
+		failwith "file error"
 ;;

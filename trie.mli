@@ -1,0 +1,1 @@
+val add_rule : Core.automaton -> string -> unit

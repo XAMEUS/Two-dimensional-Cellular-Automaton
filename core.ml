@@ -1,4 +1,4 @@
-type state = A | D
-type generation = state array array
-type rule = state array
-type automaton = rule list
+type state = A | D;;
+type generation = state array array;;
+type rule = state array;;
+type automaton = state array;;
