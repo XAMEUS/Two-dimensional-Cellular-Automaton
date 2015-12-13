@@ -2,11 +2,17 @@
 # System dependent variables
 #-------------------------------------------------------------------------------
 
-prog: core.cmo print.cmo read.cmo test_print.cmo
-	ocamlc -o prog core.cmo print.cmo read.cmo test_print.cmo
+prog: core.cmo trie.cmo print.cmo read.cmo test_print.cmo
+	ocamlc -o prog core.cmo trie.cmo print.cmo read.cmo test_print.cmo
 
 core.cmo: core.ml
 	ocamlc -c core.ml
+
+trie.cmo: trie.ml trie.cmi trie.cmo
+	ocamlc -c trie.ml
+
+trie.cmi: trie.mli
+	ocamlc trie.mli
 
 print.cmo: print.ml print.cmi core.cmo
 	ocamlc -c print.ml
