@@ -1,6 +1,5 @@
 open Core;;
 
-(*warning*)
 let lineToArray s size =
 	let a = Array.make size D in
 	for i=0 to size-1 do
@@ -50,5 +49,3 @@ let parse (file:in_channel) =
 	| None ->
 		failwith "error"
 ;;
-
-(*parse (open_in "test");;*)
