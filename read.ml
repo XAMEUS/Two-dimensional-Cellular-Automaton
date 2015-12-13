@@ -1,5 +1,5 @@
 open Core;;
-open Trie;;
+open Automaton;;
 
 let lineToArray s size =
 	let a = Array.make size D in
