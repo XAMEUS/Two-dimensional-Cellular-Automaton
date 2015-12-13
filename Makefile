@@ -2,8 +2,8 @@
 # System dependent variables
 #-------------------------------------------------------------------------------
 
-prog: core.cmo automaton.cmo print.cmo read.cmo simulate.cmo test_print.cmo
-	ocamlc -o prog core.cmo automaton.cmo print.cmo read.cmo simulate.cmo test_print.cmo
+prog: core.cmo automaton.cmo print.cmo read.cmo simulate.cmo test.cmo
+	ocamlc -o prog core.cmo automaton.cmo print.cmo read.cmo simulate.cmo test.cmo
 
 core.cmo: core.ml
 	ocamlc -c core.ml
@@ -32,8 +32,8 @@ simulate.cmo: simulate.ml simulate.cmi core.cmo
 simulate.cmi: simulate.mli
 	ocamlc simulate.mli
 
-test_print.cmo: test_print.ml core.cmo print.cmi read.cmi
-	ocamlc -c test_print.ml
+test.cmo: test.ml core.cmo print.cmi read.cmi
+	ocamlc -c test.ml
 
 clean :
 	rm -f *.cmi *.cmo *.cma *.cmx *.cmxa *.o *.a .depend
