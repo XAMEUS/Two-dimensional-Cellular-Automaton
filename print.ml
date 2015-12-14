@@ -1,40 +1,32 @@
 open Core;;
 
-(* utiliser Array.iter *)
-let rec print_l tab n =
-	if n < Array.length tab
-	then
+let print_v s =
+	if s = A then print_string " | A"
+	else print_string " | D"
+;;
+
+let rec print_separator n =
+	if n > 0 then
 		begin
-		if tab.(n) = A then print_string (" | A")
-		else print_string (" | D");
-		print_l tab (n+1)
+			print_string ("+---");
+			print_separator (n - 1)
 		end
-	else
-		print_string " |\n"
+	else print_string "+\n";
+
 ;;
 
-let rec print_separator n f =
-	if n < f
-	then
-		begin
-		print_string ("+---");
-		print_separator (n + 1) f
-    end
-  else
-    print_string ("+\n")
+let rec print_l a =
+	Array.iter print_v a;
+	print_string " |\n ";
+	print_separator (Array.length a);
 ;;
 
-let rec print_gen (gen:generation) n =
+let rec print_gen (gen:generation) =
 	print_string " ";
-	print_separator 0 (Array.length gen);
-	if n < Array.length gen
-	then
-		begin
-		print_l gen.(n) 0 ;
-		print_gen gen (n+1)
-		end
+	print_separator (Array.length gen);
+	Array.iter print_l gen;
 ;;
 
 let show_generation (gen:generation) =
-	print_gen gen 0
+	print_gen gen
 ;;
