@@ -1,10 +1,11 @@
 open Core;;	
-open Automaton
+open Automaton;;
 
 let rec print_list = function 
 	[] -> ()
-	| e::l -> if e = A then print_char 'A' else print_char 'D'; print_list l;
+	| e::l -> if e = A then print_char 'A' else print_char 'D'; print_list l
 ;;
+
 open Printf;;
 let next i j (gen:generation) (aut:automaton) =
 	let l = [
