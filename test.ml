@@ -87,4 +87,6 @@ let l = stables aut 5;;
 printf "converting automaton time : %fs\n" (Sys.time() -. i);;
 print_list_formulae (l);;
 
+create_dimacs l (open_out "fnc.dimacs");;
+
 (*show_generation (next_generation aut gen);;*)

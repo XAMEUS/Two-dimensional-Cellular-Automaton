@@ -29,3 +29,13 @@ let rec print_gen (gen:generation) =
 let show_generation (gen:generation) =
 	print_gen gen
 ;;
+
+let create_dimacs l out =
+	let rec aux l out = match l with
+		| [] -> close_out out
+		| h::t -> output_string out (h ^ "\n"); aux t out
+	in
+	let size = (string_of_int (List.length l)) in
+	output_string out ("p cnf " ^ size ^ " " ^ size ^ "\n");
+	aux l out
+;;
