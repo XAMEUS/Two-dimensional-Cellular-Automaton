@@ -27,8 +27,20 @@ let rec aux l i ix = match l with
 	| [a] -> ix
 	| h::t -> if h = A then aux t (i+1) ix
 		else aux t (i+1) (ix+(pow 2 i))
+;;
 
 (* reverse the list *)
 let is_rule (r:automaton) l =
 	r.(aux l 0 0) = A
 ;;
+
+let ix_to_rule ix =
+	let jx = ref ix in
+	let s = ref "" in
+	for i=0 to 4 do
+		s := if (!jx mod 2) = 0 then "A" ^ !s else "D" ^ !s;
+		jx := !jx / 2
+	done;
+	!s
+;;
+

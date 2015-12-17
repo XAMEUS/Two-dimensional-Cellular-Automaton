@@ -1,1 +1,1 @@
-val stables : Core.automaton -> int -> Formula.formula
+val stables : Core.automaton -> int -> Formula.formula list
