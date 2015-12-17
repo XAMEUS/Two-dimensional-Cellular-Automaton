@@ -79,12 +79,12 @@ print_l (get_all_unstables aut);;*)
 
 let rec print_list_formulae l = match l with
 	| [] -> printf "\n"
-	| h::t -> printf "%s\n" (int_of_formula h); print_list_formulae t
+	| h::t -> printf "%s\n" h; print_list_formulae t
 ;;
 
-(*let i = Sys.time ();;
-let l = stables aut 100;;
-printf "converting automaton time : %fs\n" (Sys.time() -. i);;*)
-(*print_list_formulae (l);;*)
+let i = Sys.time ();;
+let l = stables aut 5;;
+printf "converting automaton time : %fs\n" (Sys.time() -. i);;
+print_list_formulae (l);;
 
 (*show_generation (next_generation aut gen);;*)
