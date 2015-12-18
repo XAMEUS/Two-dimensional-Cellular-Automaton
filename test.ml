@@ -5,6 +5,7 @@ open Automaton;;
 open Simulate;;
 open Stable;;
 open Formula;;
+open Show_stable;;
 
 (* TEST:
 7
@@ -82,11 +83,13 @@ let rec print_list_formulae l = match l with
 	| h::t -> printf "%s\n" h; print_list_formulae t
 ;;
 
-let i = Sys.time ();;
+(*let i = Sys.time ();;
 let l = stables aut 5;;
 printf "converting automaton time : %fs\n" (Sys.time() -. i);;
 print_list_formulae (l);;
 
-create_dimacs l (open_out "fnc.dimacs");;
+create_dimacs l (open_out "fnc.dimacs");; *)
+
+show_stable ();;
 
 (*show_generation (next_generation aut gen);;*)

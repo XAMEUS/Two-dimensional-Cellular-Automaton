@@ -2,8 +2,8 @@
 # System dependent variables
 #-------------------------------------------------------------------------------
 
-prog: core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo test.cmo
-	ocamlc -o prog core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo test.cmo
+prog: core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo show_stable.cmo test.cmo
+	ocamlc str.cma -o prog core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo show_stable.cmo test.cmo
 
 core.cmo: core.ml
 	ocamlc -c core.ml
@@ -35,11 +35,14 @@ simulate.cmo: simulate.ml simulate.cmi core.cmo
 simulate.cmi: simulate.mli
 	ocamlc simulate.mli
 
-stable.cmo: stable.ml stable.cmi core.cmo formula.cmo
+stable.cmo: stable.ml stable.cmi core.cmo
 	ocamlc -c stable.ml
 
 stable.cmi: stable.mli
 	ocamlc stable.mli
+
+show_stable.cmo: show_stable.ml stable.cmi core.cmo
+	ocamlc str.cma -c show_stable.ml
 
 test.cmo: test.ml core.cmo print.cmi read.cmi automaton.cmi
 	ocamlc -c test.ml
