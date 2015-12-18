@@ -23,8 +23,8 @@ let is_stable f =
 	if result = "SAT" then
 		begin
 			match get_line tmp_gen with
-				| Some line -> line
-				| None -> ""
+				| Some line -> close_in tmp_gen; line
+				| None -> close_in tmp_gen;""
 		end
 	else
 		begin
@@ -74,7 +74,7 @@ let rec show_stable () =
 		begin
 			add_line (inv (Str.split (Str.regexp " +") gen)) "fnc.dimacs";
 			add_line gen "gens";
-			update_fnc "fnc.dimacs";
+			(*update_fnc "fnc.dimacs";*)
 			show_stable ()
 		end
 ;;
