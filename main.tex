@@ -171,9 +171,9 @@ let next i j (gen:generation) (aut:automaton) =
 		
 		 $(\neg x(i-1,\, j) \wedge x(i,\, j+1) \wedge \neg x(i+1,\, j) \wedge \neg x(i,\, j-1) \wedge x(i,\, j))$
 		 
-		\item négation, toutes les règles stables
+		\item négation, toutes les règles "stables"
 		
-		$( x(i-1,\, j) \wedge \neg x(i,\, j+1) \wedge x(i+1,\, j) \wedge x(i,\, j-1) \wedge \neg x(i,\, j))$
+		$( x(i-1,\, j) \vee \neg x(i,\, j+1) \vee x(i+1,\, j) \vee x(i,\, j-1) \vee \neg x(i,\, j))$
 		
 		\item lier toutes ces disjonctions pour obtenir la formule sous FNC.
 		
@@ -196,23 +196,6 @@ p cnf 25 25
 21 2 6 5 -1 21 2 6 -5 -1 ... -21 -2 6 -5 1 0
 \end{lstlisting}
 \end{figure}
-\end{frame}
-
-\begin{frame}{Automate -> FNC}
-	\begin{itemize}[<+- | alert@+>]
-		\item trouver toutes les règles "instables"
-		
-		ex : $DADDA \rightarrow D$ est instable
-		
-		 $(\neg x(i-1,\, j) \wedge x(i,\, j+1) \wedge \neg x(i+1,\, j) \wedge \neg x(i,\, j-1) \wedge x(i,\, j))$
-		 
-		\item négation, toutes les règles stables
-		
-		$( x(i-1,\, j) \wedge \neg x(i,\, j+1) \wedge x(i+1,\, j) \wedge x(i,\, j-1) \wedge \neg x(i,\, j))$
-		
-		\item lier toutes ces disjonctions pour obtenir la formule sous FNC.
-		
-	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
