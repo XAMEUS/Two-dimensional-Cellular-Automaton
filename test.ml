@@ -75,21 +75,22 @@ let get_all_unstables (aut:automaton) =
 	aux aut 0 (Array.length aut) []
 ;;
 
-(*print_list_rules aut;;
-print_l (get_all_unstables aut);;*)
+print_list_rules aut;;
+print_l (get_all_unstables aut);;
 
 let rec print_list_formulae l = match l with
 	| [] -> printf "\n"
 	| h::t -> printf "%s\n" h; print_list_formulae t
 ;;
 
-(*let i = Sys.time ();;
-let l = stables aut 5;;
-printf "converting automaton time : %fs\n" (Sys.time() -. i);;
-print_list_formulae (l);;
+let i = Sys.time ();;
+let l = stables aut 3;;
+(*printf "converting automaton time : %fs\n" (Sys.time() -. i);;
+print_list_formulae (l);;*)
 
-create_dimacs l (open_out "fnc.dimacs");; *)
+create_dimacs l (open_out "fnc.dimacs");;
 
+if Sys.file_exists "gens" then Sys.remove "gens";;
 show_stable ();;
 
-(*show_generation (next_generation aut gen);;*)
+show_generation (next_generation aut gen);;
