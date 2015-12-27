@@ -43,7 +43,7 @@ let rec print_l l = match l with
 	| h::t -> printf "%d-%s \n" h (ix_to_rule h); print_l t
 ;;
 
-let print_list_rules aut =
+(*let print_list_rules aut =
 	for i=0 to 31 do
 		printf "%d : %s -> %s\n" i (ix_to_rule i) (if aut.(i) = A then "A" else "D")
 	done
@@ -60,7 +60,7 @@ let get_all_dead_to_alive (aut:automaton) =
 let get_all_alive_to_dead (aut:automaton) =
 	let l = ref [] in
 	for i = 0 to ((Array.length aut / 2) - 1) do
-		if aut.(2 * i) = D
+		if aut.(2 * i) i n v= D
 		then l := ((2 * i) :: !l)
 	done;
 	l
@@ -76,7 +76,7 @@ let get_all_unstables (aut:automaton) =
 ;;
 
 print_list_rules aut;;
-print_l (get_all_unstables aut);;
+print_l (get_all_unstables aut);;*)
 
 let rec print_list_formulae l = match l with
 	| [] -> printf "\n"
@@ -85,12 +85,14 @@ let rec print_list_formulae l = match l with
 
 let i = Sys.time ();;
 let l = stables aut 3;;
-(*printf "converting automaton time : %fs\n" (Sys.time() -. i);;
-print_list_formulae (l);;*)
+printf "converting automaton time : %fs\n" (Sys.time() -. i);;
+(*print_list_formulae (l);;*)
 
 create_dimacs l (open_out "fnc.dimacs");;
 
 if Sys.file_exists "gens" then Sys.remove "gens";;
+let i = Sys.time ();;
 show_stable ();;
+printf "finding all stable generations time : %fs\n" (Sys.time() -. i);;
 
-show_generation (next_generation aut gen);;
+(*show_generation (next_generation aut gen);;*)
