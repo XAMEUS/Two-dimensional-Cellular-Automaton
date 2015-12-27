@@ -84,8 +84,8 @@ let rec print_list_formulae l = match l with
 ;;
 
 let i = Sys.time ();;
-let l = stables aut 3;;
-printf "converting automaton time : %fs\n" (Sys.time() -. i);;
+let l = stables aut 1000;;
+printf "converting automaton time (processor time): %fs\n" (Sys.time() -. i);;
 (*print_list_formulae (l);;*)
 
 create_dimacs l (open_out "fnc.dimacs");;
@@ -93,6 +93,6 @@ create_dimacs l (open_out "fnc.dimacs");;
 if Sys.file_exists "gens" then Sys.remove "gens";;
 let i = Sys.time ();;
 show_stable ();;
-printf "finding all stable generations time : %fs\n" (Sys.time() -. i);;
+printf "finding all stable generations time (processor time): %fs\n" (Sys.time() -. i);;
 
 (*show_generation (next_generation aut gen);;*)

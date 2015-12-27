@@ -66,7 +66,7 @@ let update_fnc f =
 let rec show_stable () =
 	let _ = Sys.command "./minisat fnc.dimacs tmp_gen >> log" in
 	let gen = is_stable "tmp_gen" in
-	if gen = "SAT" then
+	if gen <> "" then
 		begin
 			add_line (inv (Str.split (Str.regexp " +") gen)) "fnc.dimacs";
 			add_line gen "gens";
