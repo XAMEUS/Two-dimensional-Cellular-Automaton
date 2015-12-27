@@ -41,11 +41,17 @@ stable.cmo: stable.ml stable.cmi core.cmo
 stable.cmi: stable.mli
 	ocamlc stable.mli
 
-show_stable.cmo: show_stable.ml stable.cmi core.cmo
+show_stable.cmo: show_stable.ml show_stable.cmi stable.cmi core.cmo
 	ocamlc str.cma -c show_stable.ml
+
+show_stable.cmi: show_stable.mli
+	ocamlc show_stable.mli
 
 test.cmo: test.ml core.cmo print.cmi read.cmi automaton.cmi
 	ocamlc -c test.ml
 
 clean :
 	rm -f *.cmi *.cmo *.cma *.cmx *.cmxa *.o *.a .depend
+
+doc : core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo show_stable.cmo
+	mkdir -p doc; ocamldoc -d doc -html core.ml formula.ml automaton.mli print.mli read.mli simulate.mli stable.mli show_stable.mli
