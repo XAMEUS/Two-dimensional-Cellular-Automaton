@@ -51,7 +51,10 @@ test.cmo: test.ml core.cmo print.cmi read.cmi automaton.cmi
 	ocamlc -c test.ml
 
 clean :
-	rm -f *.cmi *.cmo *.cma *.cmx *.cmxa *.o *.a .depend
+	rm -f *.cmi *.cmo *.cma *.cmx *.cmxa *.o *.a .depend; rm -rf doc dot
 
 doc : core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo show_stable.cmo
 	mkdir -p doc; ocamldoc -d doc -html core.ml formula.ml automaton.mli print.mli read.mli simulate.mli stable.mli show_stable.mli
+
+dot : core.ml formula.ml automaton.ml print.ml read.ml simulate.ml stable.ml show_stable.ml test.ml
+	mkdir -p dot; ocamldoc -o dot/dependency.dot -dot *.ml; dot -Tpng dot/dependency.dot -o dot/dependency.png
