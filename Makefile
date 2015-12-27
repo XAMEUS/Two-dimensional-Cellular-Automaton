@@ -5,6 +5,9 @@
 prog: core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo show_stable.cmo test.cmo
 	ocamlc str.cma -o prog core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.cmo show_stable.cmo test.cmo
 
+show : core.cmo automaton.cmo print.cmo read.cmo simulate.cmo interfaceGeneration.cmo mainShow.cmo
+	ocamlc graphics.cma str.cma -o show core.cmo automaton.cmo print.cmo read.cmo simulate.cmo interfaceGeneration.cmo mainShow.cmo
+
 core.cmo: core.ml
 	ocamlc -c core.ml
 
@@ -49,6 +52,15 @@ show_stable.cmi: show_stable.mli
 
 test.cmo: test.ml core.cmo print.cmi read.cmi automaton.cmi
 	ocamlc -c test.ml
+
+mainShow.cmo: mainShow.ml core.cmo print.cmi read.cmi automaton.cmi
+	ocamlc -c mainShow.ml
+
+interfaceGeneration.cmo: interfaceGeneration.ml interfaceGeneration.cmi core.cmo simulate.cmo
+	ocamlc -c interfaceGeneration.ml
+
+interfaceGeneration.cmi: interfaceGeneration.mli
+	ocamlc interfaceGeneration.mli
 
 clean :
 	rm -f *.cmi *.cmo *.cma *.cmx *.cmxa *.o *.a .depend; rm -rf doc dot

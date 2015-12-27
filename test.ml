@@ -84,7 +84,7 @@ let rec print_list_formulae l = match l with
 ;;
 
 let i = Sys.time ();;
-let l = stables aut 1000;;
+let l = stables aut 50;;
 printf "converting automaton time (processor time): %fs\n" (Sys.time() -. i);;
 (*print_list_formulae (l);;*)
 
