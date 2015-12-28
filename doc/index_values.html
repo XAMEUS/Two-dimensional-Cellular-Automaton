@@ -1,0 +1,115 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Core" rel="Chapter" href="Core.html">
+<link title="Formula" rel="Chapter" href="Formula.html">
+<link title="Automaton" rel="Chapter" href="Automaton.html">
+<link title="Print" rel="Chapter" href="Print.html">
+<link title="Read" rel="Chapter" href="Read.html">
+<link title="Simulate" rel="Chapter" href="Simulate.html">
+<link title="Stable" rel="Chapter" href="Stable.html">
+<link title="Show_stable" rel="Chapter" href="Show_stable.html"><title>Index of values</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Index of values</h1>
+<table>
+<tr><td align="left"><br>A</td></tr>
+<tr><td><a href="Automaton.html#VALadd_rule">add_rule</a> [<a href="Automaton.html">Automaton</a>]</td>
+<td><div class="info">
+Add the given rule (<code class="code">XXXXX -&gt; A</code>) to the automaton.
+</div>
+</td></tr>
+<tr><td align="left"><br>C</td></tr>
+<tr><td><a href="Print.html#VALcreate_dimacs">create_dimacs</a> [<a href="Print.html">Print</a>]</td>
+<td><div class="info">
+Print the given forumla (dimacs, string list ~ conjunction (the list) of disjunctions (string)) into a file
+</div>
+</td></tr>
+<tr><td align="left"><br>D</td></tr>
+<tr><td><a href="Formula.html#VALdimacs_of_formula">dimacs_of_formula</a> [<a href="Formula.html">Formula</a>]</td>
+<td><div class="info">
+Convert a given formula into a string (dimacs format)
+</div>
+</td></tr>
+<tr><td align="left"><br>G</td></tr>
+<tr><td><a href="Stable.html#VALget_all_unstables">get_all_unstables</a> [<a href="Stable.html">Stable</a>]</td>
+<td><div class="info">
+Get all unstable rules (index) from the given automaton, for example: AAAAD -&gt; A or AAAAA -&gt; D.
+</div>
+</td></tr>
+<tr><td align="left"><br>I</td></tr>
+<tr><td><a href="Show_stable.html#VALinv">inv</a> [<a href="Show_stable.html">Show_stable</a>]</td>
+<td><div class="info">
+Inverse the given formula (dimacs); positive values become negative, the negative ones, positive.
+</div>
+</td></tr>
+<tr><td><a href="Automaton.html#VALis_rule">is_rule</a> [<a href="Automaton.html">Automaton</a>]</td>
+<td><div class="info">
+Test if the automaton contains the given rule (as a list <b>reversed</b>; for example ADDAD = <code class="code">[D; A; D; D; A]</code>)
+</div>
+</td></tr>
+<tr><td><a href="Show_stable.html#VALis_stable">is_stable</a> [<a href="Show_stable.html">Show_stable</a>]</td>
+<td><div class="info">
+Interprete the minisat's result.
+</div>
+</td></tr>
+<tr><td><a href="Automaton.html#VALix_to_rule">ix_to_rule</a> [<a href="Automaton.html">Automaton</a>]</td>
+<td><div class="info">
+Transform the given int (index) to a rule; for example: <code class="code">26 -&gt; 11010 -&gt; DDADA</code>
+</div>
+</td></tr>
+<tr><td align="left"><br>L</td></tr>
+<tr><td><a href="Formula.html#VALlatex_of_formula">latex_of_formula</a> [<a href="Formula.html">Formula</a>]</td>
+<td><div class="info">
+Convert a given formula into a string (latex format).
+</div>
+</td></tr>
+<tr><td align="left"><br>N</td></tr>
+<tr><td><a href="Simulate.html#VALnext_generation">next_generation</a> [<a href="Simulate.html">Simulate</a>]</td>
+<td><div class="info">
+Calculate the next generation of the given generation (according to the given automaton).
+</div>
+</td></tr>
+<tr><td align="left"><br>P</td></tr>
+<tr><td><a href="Read.html#VALparse">parse</a> [<a href="Read.html">Read</a>]</td>
+<td><div class="info">
+Read an automaton and a generation from the given file
+</div>
+</td></tr>
+<tr><td align="left"><br>S</td></tr>
+<tr><td><a href="Print.html#VALshow_generation">show_generation</a> [<a href="Print.html">Print</a>]</td>
+<td><div class="info">
+Print a string representation of the given generation
+</div>
+</td></tr>
+<tr><td><a href="Show_stable.html#VALshow_stable">show_stable</a> [<a href="Show_stable.html">Show_stable</a>]</td>
+<td><div class="info">
+Calculate all stable generations.
+</div>
+</td></tr>
+<tr><td><a href="Stable.html#VALstables">stables</a> [<a href="Stable.html">Stable</a>]</td>
+<td><div class="info">
+Transform the given automaton into a formula to calculate all stable generations.
+</div>
+</td></tr>
+<tr><td><a href="Formula.html#VALstring_of_formula">string_of_formula</a> [<a href="Formula.html">Formula</a>]</td>
+<td><div class="info">
+Convert a given formula into a string.
+</div>
+</td></tr>
+<tr><td align="left"><br>U</td></tr>
+<tr><td><a href="Show_stable.html#VALupdate_fnc">update_fnc</a> [<a href="Show_stable.html">Show_stable</a>]</td>
+<td><div class="info">
+<span class="deprecated">Update .dimacs first line.
+</span></div>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Formula.html">
+<link rel="next" href="Print.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Core" rel="Chapter" href="Core.html">
+<link title="Formula" rel="Chapter" href="Formula.html">
+<link title="Automaton" rel="Chapter" href="Automaton.html">
+<link title="Print" rel="Chapter" href="Print.html">
+<link title="Read" rel="Chapter" href="Read.html">
+<link title="Simulate" rel="Chapter" href="Simulate.html">
+<link title="Stable" rel="Chapter" href="Stable.html">
+<link title="Show_stable" rel="Chapter" href="Show_stable.html"><title>Automaton</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Formula.html" title="Formula">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Print.html" title="Print">Next</a>
+</div>
+<h1>Module <a href="type_Automaton.html">Automaton</a></h1>
+
+<pre><span class="keyword">module</span> Automaton: <code class="code">sig</code> <a href="Automaton.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Automaton's functions<br>
+</div>
+<hr width="100%">
+
+<pre><span id="VALadd_rule"><span class="keyword">val</span> add_rule</span> : <code class="type"><a href="Core.html#TYPEautomaton">Core.automaton</a> -> string -> unit</code></pre><div class="info ">
+Add the given rule (<code class="code">XXXXX -&gt; A</code>) to the automaton.<br>
+</div>
+
+<pre><span id="VALis_rule"><span class="keyword">val</span> is_rule</span> : <code class="type"><a href="Core.html#TYPEautomaton">Core.automaton</a> -> <a href="Core.html#TYPEstate">Core.state</a> list -> bool</code></pre><div class="info ">
+Test if the automaton contains the given rule (as a list <b>reversed</b>; for example ADDAD = <code class="code">[D; A; D; D; A]</code>)<br>
+</div>
+
+<pre><span id="VALix_to_rule"><span class="keyword">val</span> ix_to_rule</span> : <code class="type">int -> string</code></pre><div class="info ">
+Transform the given int (index) to a rule; for example: <code class="code">26 -&gt; 11010 -&gt; DDADA</code><br>
+</div>
+</body></html>
