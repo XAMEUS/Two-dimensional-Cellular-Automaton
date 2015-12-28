@@ -57,3 +57,7 @@ AAA
 Then run : `./prog` to generate the "gens" file, containing all stable generations.
 
 You can use `./view` to visualize all stable generations, or `./show` to run the game on the GenerationZero (step by step).
+
+---
+
+Documentation: http://xameus.github.io/Two-dimensional-Cellular-Automaton/doc/
