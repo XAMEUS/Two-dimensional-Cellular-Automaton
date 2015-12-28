@@ -8,6 +8,9 @@ prog: core.cmo formula.cmo automaton.cmo print.cmo read.cmo simulate.cmo stable.
 show : core.cmo automaton.cmo print.cmo read.cmo simulate.cmo interfaceGeneration.cmo mainShow.cmo
 	ocamlc graphics.cma str.cma -o show core.cmo automaton.cmo print.cmo read.cmo simulate.cmo interfaceGeneration.cmo mainShow.cmo
 
+view: core.cmo automaton.cmo print.cmo read.cmo interfaceGeneration.cmo stable.cmo view_stable.cmo mainView.cmo
+	ocamlc graphics.cma str.cma -o view core.cmo automaton.cmo print.cmo read.cmo interfaceGeneration.cmo stable.cmo view_stable.cmo mainView.cmo
+
 core.cmo: core.ml
 	ocamlc -c core.ml
 
@@ -38,7 +41,7 @@ simulate.cmo: simulate.ml simulate.cmi core.cmo
 simulate.cmi: simulate.mli
 	ocamlc simulate.mli
 
-stable.cmo: stable.ml stable.cmi core.cmo
+stable.cmo: stable.ml stable.cmi core.cmo formula.cmo
 	ocamlc -c stable.ml
 
 stable.cmi: stable.mli
@@ -56,7 +59,16 @@ test.cmo: test.ml core.cmo print.cmi read.cmi automaton.cmi
 mainShow.cmo: mainShow.ml core.cmo print.cmi read.cmi automaton.cmi
 	ocamlc -c mainShow.ml
 
-interfaceGeneration.cmo: interfaceGeneration.ml interfaceGeneration.cmi core.cmo simulate.cmo
+view_stable.cmo: view_stable.ml view_stable.cmi core.cmo print.cmo
+	ocamlc -c view_stable.ml
+
+view_stable.cmi: view_stable.mli
+	ocamlc view_stable.mli
+
+mainView.cmo: mainView.ml core.cmo print.cmi read.cmi automaton.cmi
+	ocamlc -c mainView.ml
+
+interfaceGeneration.cmo: interfaceGeneration.ml interfaceGeneration.cmi core.cmo simulate.cmo view_stable.cmo
 	ocamlc -c interfaceGeneration.ml
 
 interfaceGeneration.cmi: interfaceGeneration.mli
