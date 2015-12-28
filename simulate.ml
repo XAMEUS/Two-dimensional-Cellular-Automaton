@@ -8,13 +8,6 @@ let rec print_list = function
 
 open Printf;;
 let next i j (gen:generation) (aut:automaton) =
-	let l = [
-		gen.(i).(j); (*CEL*)
-		gen.(i).(if j > 0 then j - 1 else Array.length gen - 1); (*WEST*)
-		gen.((i+1) mod (Array.length gen)).(j); (*SOUTH*)
-		gen.(i).((j+1) mod (Array.length gen)); (*EAST*)
-		gen.(if i > 0 then i - 1 else (Array.length gen - 1)).(j) (*NORTH*)
-	] in print_list (List.rev l); printf "->%B" (is_rule aut l);
 	if is_rule aut [
 		gen.(i).(j); (*CEL*)
 		gen.(i).(if j > 0 then j - 1 else Array.length gen - 1); (*WEST*)
