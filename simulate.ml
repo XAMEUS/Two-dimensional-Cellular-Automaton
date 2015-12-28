@@ -24,15 +24,14 @@ let next i j (gen:generation) (aut:automaton) =
 	] then A else D
 ;;
 
-(* signature *)
 let next_generation (aut:automaton) (gen:generation) =
 	let size = Array.length gen in
 	let next_gen = Array.make_matrix size size D in
 	for i = 0 to size - 1 do
 		for j = 0 to size - 1 do
-			print_int i; print_char ':'; print_int j; print_string "->";
+			(*print_int i; print_char ':'; print_int j; print_string "->";*)
 			next_gen.(i).(j) <- next i j gen aut;
-			print_char '\n'
+			(*print_char '\n'*)
 		done;
 	done; next_gen
 ;;
