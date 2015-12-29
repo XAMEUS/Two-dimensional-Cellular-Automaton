@@ -184,16 +184,25 @@ let next i j (gen:generation) (aut:automaton) =
 \section{MiniSat}
 
 \begin{frame}[fragile]
+\lstset{
+	basicstyle=\footnotesize, frame=tb,
+	xleftmargin=.2\textwidth, xrightmargin=.2\textwidth
+	}
 \begin{figure}
 \caption{fnc.dimacs}
 \begin{lstlisting}
-p cnf 25 25
-20 21 5 24 -25 20 21 5 -24 -25 ... -20 -21 5 -24 25 0
-19 25 4 23 -24 19 25 4 -23 -24 ... -19 -25 4 -23 24 0
-18 24 3 22 -23 18 24 3 -22 -23 ... -18 -24 3 -22 23 0
+p cnf 9 9
+6 7 3 8 9 0
+6 7 3 -8 -9 0
  ...
-22 3 7 1 -2 22 3 7 -1 -2 ... -22 -3 7 -1 2 0
-21 2 6 5 -1 21 2 6 -5 -1 ... -21 -2 6 -5 1 0
+6 -7 -3 -8 -9 0
+
+ ...
+
+7 2 4 3 1 0
+7 2 4 -3 -1 0
+ ...
+-7 -2 -4 -3 -1 0
 \end{lstlisting}
 \end{figure}
 \end{frame}
